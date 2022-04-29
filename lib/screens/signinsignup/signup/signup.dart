@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import './../../../controller/auth.dart';
+
 class SignUp extends StatefulWidget {
   static const routeName = 'signup';
   const SignUp();
@@ -12,6 +14,7 @@ class SignUp extends StatefulWidget {
 class _SignInSignUpPageState extends State<SignUp> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
+  AuthModel? _authModel = AuthModel();
   String dropdownValue = 'Usertype';
   List dropDownData = ['Usertype', 'Buyer', 'Seller'];
   final List<String> textList = ['Select Usertype', "Buyer", "Seller"];
@@ -122,7 +125,7 @@ class _SignInSignUpPageState extends State<SignUp> {
                                   ),
                                 ),
                               ),
-                              TextField(
+                              const TextField(
                                 decoration: InputDecoration(
                                   contentPadding:
                                       EdgeInsets.symmetric(horizontal: 10),
@@ -240,7 +243,8 @@ class _SignInSignUpPageState extends State<SignUp> {
                       // #signup_button
                       MaterialButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, "verifysignupemail");
+                          // Navigator.pushNamed(context, "verifysignupemail");
+                          signUp();
                         },
                         height: 45,
                         minWidth: 240,
@@ -351,5 +355,10 @@ class _SignInSignUpPageState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  signUp() async {
+    print('Signup screen function hits here--->');
+    await _authModel!.signUpRequest();
   }
 }

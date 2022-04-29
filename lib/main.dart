@@ -3,9 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:pushp/controller/productsModel.dart';
 import 'package:pushp/screens/signinsignup/login/forgotresetpassword.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+// import 'package:global_configuration/global_configuration.dart';
 
 import './controller/auth.dart';
 
+import 'config/app_settings.dart';
 import 'routes.dart';
 
 import 'screens/home/homepage.dart';
@@ -16,7 +18,8 @@ import 'screens/signinsignup/signup/signup.dart';
 import 'screens/signinsignup/signup/verifysignupemail.dart';
 import 'screens/splashScreen.dart';
 
-void main() {
+void main() async {
+  // GlobalConfiguration().loadFromMap(appSettings);
   runApp(MyApp());
 }
 
