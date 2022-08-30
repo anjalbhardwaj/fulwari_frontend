@@ -220,7 +220,7 @@ class _SignInSignUpPageState extends State<SignUp> {
                                   ),
                                 ),
                               ),
-                              TextField(
+                              const TextField(
                                 decoration: InputDecoration(
                                   contentPadding:
                                       EdgeInsets.symmetric(horizontal: 10),
